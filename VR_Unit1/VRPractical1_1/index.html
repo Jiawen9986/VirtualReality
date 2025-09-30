@@ -3,16 +3,50 @@
     <script src="https://aframe.io/releases/1.7.0/aframe.min.js"></script>
   </head>
   <body>
-    <a-scene>
+      <a-scene>
+        <a-entity id="car" position="0 -0.7 -2">
+            <a-box wireframe=true width="1.5" height="2" depth="3"></a-box>
+            <a-box position="0 -0.7 0" width="1.25" height="0.4" depth="3" rotation="0 0 0" color="#4CC3D9"></a-box>
+            <a-box position="-0.45 -0.75 1.5" width="0.15" height="0.05" depth="0.15" rotation="90 0 0" color="#FFC65D" material="side: double; transparent: true; opacity: 0.5;"></a-box>
+            <a-box position="0.45 -0.75 1.5" width="0.15" height="0.05" depth="0.15" rotation="90 0 0" color="#FFC65D" material="side: double; transparent: true; opacity: 0.5;"></a-box>
+            <a-cylinder position="0.7 -0.8 0.95" radius="0.2" rotation="0 0 0" height="0.1" color="#FFC65D"></a-cylinder>
+            <a-cylinder position="0.7 -0.8 -0.95" radius="0.2" rotation="0 0 90" height="0.1" color="#FFC65D"></a-cylinder>
+            <a-cylinder position="-0.7 -0.8 0.95" radius="0.2" rotation="0 0 90" height="0.1" color="#FFC65D"></a-cylinder>
+            <a-cylinder position="-0.7 -0.8 -0.95" radius="0.2" rotation="0 0 90" height="0.1" color="#FFC65D"></a-cylinder>
+            <a-plane position="0 -0.3 -0.2" rotation="120 0 0" width="1.25" height="0.75" color="lightblue" material="side: double; transparent: true; opacity: 0.5; "></a-plane>></a-plane>
+            <a-plane position="0 -0.3 -1.3" rotation="45 0 0" width="1.25" height="0.55" color="lightblue" material="side: double; transparent: true; opacity: 0.5; "></a-plane>></a-plane>
+            <a-plane position="0 -0.1 -0.8" rotation="90 0 0" width="1.25" height="0.6" color="gray" material="side: double; transparent: true; opacity: 0.5; "></a-plane>></a-plane>
+            <a-plane position="0 -1 0" rotation="-90 0 0" width="4" height="4" color="#7BC8A4"></a-plane>
+      </a-entity>
+
+      <a-entity id="car2" position="-4 -0.7 2" rotation="0 90 0">
         <a-box wireframe=true width="1.5" height="2" depth="3"></a-box>
-            <a-box wireframe = true position="0 0.3 -1" width="1.25" height="0.4" depth="3" rotation="0 0 0" color="#4CC3D9"></a-box>
-            <a-cylinder position="0.7 0.2 -1.95" radius="0.2" rotation="0 0 90" height="0.1" color="#FFC65D"></a-cylinder>
-            <a-cylinder position="0.7 0.2 0" radius="0.2" rotation="0 0 90" height="0.1" color="#FFC65D"></a-cylinder>
-            <a-cylinder position="-0.75 0.2 0" radius="0.2" rotation="0 0 90" height="0.1" color="#FFC65D"></a-cylinder>
-            <a-cylinder position="-0.75 0.2 -1.95" radius="0.2" rotation="0 0 90" height="0.1" color="#FFC65D"></a-cylinder>
-            <a-tetrahedron wireframe=true position="0 1.2 -1" radius="0.4" color="#EF2D5E"></a-tetrahedron>
-            <a-plane position="0 0 -1" rotation="-90 0 0" width="4" height="4" color="#7BC8A4"></a-plane>
-        </a-box>
-    </a-scene>
-  </body>
+            <a-box position="0 -0.7 0" width="1.25" height="0.4" depth="3" rotation="0 0 0" color="#4CC3D9"></a-box>
+            <a-box position="-0.45 -0.75 1.5" width="0.15" height="0.05" depth="0.15" rotation="90 0 0" color="#FFC65D" material="side: double; transparent: true; opacity: 0.5;"></a-box>
+            <a-box position="0.45 -0.75 1.5" width="0.15" height="0.05" depth="0.15" rotation="90 0 0" color="#FFC65D" material="side: double; transparent: true; opacity: 0.5;"></a-box>
+            <a-cylinder position="0.7 -0.8 0.95" radius="0.2" rotation="0 0 0" height="0.1" color="#FFC65D"></a-cylinder>
+            <a-cylinder position="0.7 -0.8 -0.95" radius="0.2" rotation="0 0 90" height="0.1" color="#FFC65D"></a-cylinder>
+            <a-cylinder position="-0.7 -0.8 0.95" radius="0.2" rotation="0 0 90" height="0.1" color="#FFC65D"></a-cylinder>
+            <a-cylinder position="-0.7 -0.8 -0.95" radius="0.2" rotation="0 0 90" height="0.1" color="#FFC65D"></a-cylinder>
+            <a-plane position="0 -0.3 -0.2" rotation="120 0 0" width="1.25" height="0.75" color="lightblue" material="side: double; transparent: true; opacity: 0.5; "></a-plane>></a-plane>
+            <a-plane position="0 -0.3 -1.3" rotation="45 0 0" width="1.25" height="0.55" color="lightblue" material="side: double; transparent: true; opacity: 0.5; "></a-plane>></a-plane>
+            <a-plane position="0 -0.1 -0.8" rotation="90 0 0" width="1.25" height="0.6" color="gray" material="side: double; transparent: true; opacity: 0.5; "></a-plane>></a-plane>
+            <a-plane position="0 -1 0" rotation="-90 0 0" width="4" height="4" color="#7BC8A4"></a-plane>
+      </a-entity>
+
+
+      <a-entity id="car3" position="4 -0.7 2" rotation="0 -90 0">
+       <a-box wireframe=true width="1.5" height="2" depth="3"></a-box>
+            <a-box position="0 -0.7 0" width="1.25" height="0.4" depth="3" rotation="0 0 0" color="#4CC3D9"></a-box>
+            <a-box position="-0.45 -0.75 1.5" width="0.15" height="0.05" depth="0.15" rotation="90 0 0" color="#FFC65D" material="side: double; transparent: true; opacity: 0.5;"></a-box>
+            <a-box position="0.45 -0.75 1.5" width="0.15" height="0.05" depth="0.15" rotation="90 0 0" color="#FFC65D" material="side: double; transparent: true; opacity: 0.5;"></a-box>
+            <a-cylinder position="0.7 -0.8 0.95" radius="0.2" rotation="0 0 0" height="0.1" color="#FFC65D"></a-cylinder>
+            <a-cylinder position="0.7 -0.8 -0.95" radius="0.2" rotation="0 0 90" height="0.1" color="#FFC65D"></a-cylinder>
+            <a-cylinder position="-0.7 -0.8 0.95" radius="0.2" rotation="0 0 90" height="0.1" color="#FFC65D"></a-cylinder>
+            <a-cylinder position="-0.7 -0.8 -0.95" radius="0.2" rotation="0 0 90" height="0.1" color="#FFC65D"></a-cylinder>
+            <a-plane position="0 -0.3 -0.2" rotation="120 0 0" width="1.25" height="0.75" color="lightblue" material="side: double; transparent: true; opacity: 0.5; "></a-plane>></a-plane>
+            <a-plane position="0 -0.3 -1.3" rotation="45 0 0" width="1.25" height="0.55" color="lightblue" material="side: double; transparent: true; opacity: 0.5; "></a-plane>></a-plane>
+            <a-plane position="0 -0.1 -0.8" rotation="90 0 0" width="1.25" height="0.6" color="gray" material="side: double; transparent: true; opacity: 0.5; "></a-plane>></a-plane>
+            <a-plane position="0 -1 0" rotation="-90 0 0" width="4" height="4" color="#7BC8A4"></a-plane>
+      </a-entity>
 </html>
