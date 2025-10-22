@@ -98,7 +98,7 @@ function createTree(x, y, z){
   tree.append( pines );
 
   let stump = document.createElement("a-cylinder");
-  stump.setAttribute("position","0 1 0");
+  stump.setAttribute("position","0 0.5 0");
   stump.setAttribute("color","brown");
   stump.setAttribute("radius","0.25");
   tree.append( stump );
