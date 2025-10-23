@@ -16,7 +16,7 @@ window.addEventListener("DOMContentLoaded",function() {
     let cloud = new cloudObj(x, 10 , z);
   }  
   
-  for(let i = 0; i < 15; i++){
+  for(let i = 0; i < 20; i++){
     let x = rnd(-20,20);
     let z = rnd(-20,20);
     let house = new House(x, 0 , z);
