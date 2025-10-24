@@ -23,7 +23,6 @@ function loop(){
 
     sun = document.querySelector("#sun");
     sun.setAttribute("scale",{z:sun.getAttribute("scale").z+=0.005, x:sun.getAttribute("scale").x+=0.005, y:sun.getAttribute("scale").y+=0.005 });
-
     sun.setAttribute("position",{x:2, y:5, z:z});
 
     window.requestAnimationFrame(loop);
