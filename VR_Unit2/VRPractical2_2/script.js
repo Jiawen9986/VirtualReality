@@ -22,7 +22,9 @@ function loop(){
     dude.setAttribute("position",{z:dude.getAttribute("position").z, x:dude.getAttribute("position").x, y:dude.getAttribute("position").y+=0.0025 });
 
     sun = document.querySelector("#sun");
-    sun.setAttribute("position",{x:2, y:5, z:sun.getAttribute("position").z-=0.1 });
+    sun.setAttribute("scale",{z:sun.getAttribute("scale").z+=0.005, x:sun.getAttribute("scale").x+=0.005, y:sun.getAttribute("scale").y+=0.005 });
+
+    sun.setAttribute("position",{x:2, y:5, z:z});
 
     window.requestAnimationFrame(loop);
 }
