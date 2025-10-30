@@ -6,35 +6,28 @@ class Ufo{
         this.a = y;
         this.da = da;
 
-
         this.obj = document.createElement("a-entity");
 
-
         let head = document.createElement("a-sphere");
-        head.setAttribute("radius", "2")
-        head.setAttribute("color", "green");
+        head.setAttribute("radius", "1.2")
+        head.setAttribute("color", "gray");
         head.setAttribute("position", "0 0 -2");
-        head.setAttribute("opacity", "0.4");
+        head.setAttribute("opacity", "0.5");
         this.obj.append(head);
        
         let body = document.createElement("a-sphere");
         body.setAttribute("radius","3");
         body.setAttribute("color","gray");
-        body.setAttribute("position","0 -1.5 -2");
-        body.setAttribute("scale", "2 0.5 2");
+        body.setAttribute("position","0 -0.55 -2");
+        body.setAttribute("scale", "1.25 0.25 1.25");
         this.obj.append(body);
 
-
-   
          this.obj.setAttribute("position",{x:this.x, y:this.y, z:this.z});
         scene.append( this.obj )
   }
-
 
     invade(){
         this.a -= this.da;
         this.obj.setAttribute("position", {x:this.x, y:this.a, z:this.z});
     }
-
-
 }
