@@ -1,11 +1,11 @@
 let rnd = (l,u) => Math.floor(Math.random()*(u-l) + l);
-let scene, rockets = [];
+let scene, rockets = [], ufos = [];
 
 
 window.addEventListener("DOMContentLoaded",function() {
   scene = document.querySelector("a-scene");
   for(let i=0; i<100; i++){
-    let rocket = new Rocket(rnd(-60,60), rnd(0,5), rnd(-60,60));
+    let rocket = new Rocket(rnd(-50,50), rnd(-1,-10), rnd(-50,50));
     rockets.push(rocket);
   }
 
