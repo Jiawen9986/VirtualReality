@@ -40,7 +40,7 @@ window.addEventListener("DOMContentLoaded",function() {
       if(cols[c] == "x"){
         new Wall(c,1,r)
       }
-      else if(cols[c] == "P"){
+      else if(cols[c] == "p"){
         new Plant(c,1,r);
     }
 
