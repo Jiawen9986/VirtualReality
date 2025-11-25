@@ -6,7 +6,6 @@ window.addEventListener("DOMContentLoaded",function() {
   car = document.getElementById("car1");
   car.x = 5;
   car.dx = -0.1;
-  car.move = false;
   car.addEventListener("click",function(){
     car.move = true;
   });
