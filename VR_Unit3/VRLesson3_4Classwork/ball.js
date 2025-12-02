@@ -12,7 +12,7 @@ class Ball{
     // Challenge 6: Add the event listener to make the ball disappear and increase the score
     this.obj.addEventListener('click', () => {
     score += 1;
-    this.obj.setAttribute("opacity", "0");
+    this.obj.ball.setAttribute("visible", "false");
     });
 
     this.obj.setAttribute("position",{x:this.x, y:this.y, z:this.z});
