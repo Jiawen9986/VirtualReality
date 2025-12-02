@@ -16,7 +16,7 @@ window.addEventListener("DOMContentLoaded",function() {
   score_text = document.getElementById("score");
   for(let i = 0;i < 10; i++){
     let x = rnd(-10,10);
-    let y = rnd(-10,10);
+    let y = rnd(-1,10);
     let z = rnd(-10,10);
 
     balls.push(new Ball(x,y,z));
