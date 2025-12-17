@@ -20,6 +20,11 @@ class Bullet{
     this.obj.object3D.position.y += this.dy;
     this.obj.object3D.position.z += this.dz; 
 
-    //this.obj.object3D.rotation.y = this.theta - Math.PI/2;
+  }
+    destroy(){
+    if(this.obj){
+      if(typeof this.obj.remove === 'function') this.obj.remove()
+      else if(this.obj.parentNode) this.obj.parentNode.removeChild(this.obj)
+    }
   }
 }
