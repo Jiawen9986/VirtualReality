@@ -1,0 +1,19 @@
+<html>
+  <head>
+    <script src="https://aframe.io/releases/1.4.0/aframe.min.js"></script>
+    <script src="lamp.js"></script>
+    <script src="script.js"></script>
+  </head>
+  <body>
+    <a-scene light="defaultLightsEnabled: false">
+      <!-- Challenge: Add low intensity ambient light to the world -->
+
+      <!-- Challenge: Allow the plane to receive shadows -->
+      <a-plane position="0 0 -4" rotation="-90 0 0" width="20" height="20" color="#7BC8A4"></a-plane>
+      <a-sky color="#ECECEC"></a-sky>
+      <a-camera position="0 1.6 5">
+        <a-cursor/>      
+      </a-camera>
+    </a-scene>
+  </body>
+</html>

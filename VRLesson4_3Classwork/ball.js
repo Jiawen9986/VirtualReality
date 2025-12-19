@@ -3,6 +3,7 @@ class Ball{
     this.obj = document.createElement("a-sphere");
     this.obj.setAttribute("radius","0.5");
     //Challenge 1: Make the ball a dynamic body
+    this.obj.setAttribute("dynamic-body","");
     let r = Math.floor(rnd(0,255));
     let g = Math.floor(rnd(0,255));
     let b = Math.floor(rnd(0,255));
