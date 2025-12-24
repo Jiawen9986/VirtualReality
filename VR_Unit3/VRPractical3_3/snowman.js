@@ -1,3 +1,4 @@
+
 class Snowman{
   constructor(x,z){
     this.a = 0;

@@ -2,20 +2,18 @@
   <head>
     <script src="https://aframe.io/releases/1.7.0/aframe.min.js"></script>
     <script src="bullet.js"></script>
-    <script src="bulletBox.js"></script>
+    <script src="script.js"></script>
     <script src="snowman.js"></script>
     <script src="tree.js"></script>
-    <script src="script.js"></script>
+    <script src="bulletbox.js"></script>
   </head>
   <body>
     <a-scene>
-      <a-plane position="0 0 -4" rotation="-90 0 0" width="40" height="40" color="#7BC8A4"></a-plane>
+      <a-plane position="0 0 -4" rotation="-90 0 0" width="90" height="40" color="#7BC8A4"></a-plane>
       <a-sky color="#ECECEC"></a-sky>
-      <a-camera position="0 1.6 0"></a-camera>
-        <a-cursor raycaster="objects: [clickable]">
-          <a-text id="time" position="-2 1 -1" value="Time: " color="black"></a-text>
-          <a-text id="score" position="1.5 1 -1" value="Score: 0" color="black" width="4"></a-text>
-        </a-cursor>
+      <a-camera position="0 1 0">
+        <a-cursor></a-cursor>
+      </a-camera>
     </a-scene>
   </body>
 </html>
