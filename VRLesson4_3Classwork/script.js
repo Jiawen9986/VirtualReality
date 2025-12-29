@@ -12,7 +12,4 @@ window.addEventListener("DOMContentLoaded",function() {
     ball.setAttribute("velocity", `${rnd(-10,10)},${rnd(-10,10)},${rnd(-10,10)}`);
     scene.appendChild(ball);
   }
-
-
-  
 })
