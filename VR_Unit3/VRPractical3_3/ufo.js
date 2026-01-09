@@ -8,7 +8,6 @@ class UFO{
         this.s = 1;
         this.ds = -0.01;
         this.shot = false;
-    
 
         this.obj=document.createElement("a-entity");
 
@@ -19,7 +18,6 @@ class UFO{
         top.setAttribute("metalness","0.4");
         top.setAttribute("roughness","0.2");
         this.obj.append(top);
-
 
         let body=document.createElement("a-sphere");
         body.setAttribute("radius","5");
@@ -42,14 +40,12 @@ class UFO{
         let light=document.createElement("a-cone");
         light.setAttribute("radius-bottom","2.5");
         light.setAttribute("radius-top", "0");
-        light.setAttribute("height", "5");
+        light.setAttribute("height", "8");
         light.setAttribute("color","yellow");
         light.setAttribute("opacity","0.4");
         light.setAttribute("position",{x:0,y:-2.5,z:0.35});
-        light.setAttribute("rotation",{x:180,y:0,z:0});
         this.obj.append(light);
 
-    
         this.obj.setAttribute("position",{x:x,y:y,z:z});
         scene.append(this.obj);
 
@@ -60,8 +56,7 @@ class UFO{
         this.obj.setAttribute("position",{x:this.x,y:this.y,z:this.z});
         if (this.y<=0){
             this.y = 0
-        }
-        
+        }  
 
     }
     
