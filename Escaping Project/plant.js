@@ -8,6 +8,7 @@ class Plant {
     this.obj.setAttribute("src","Plant.png");
     this.obj.setAttribute("position",{x:x,y:y,z:z});
     this.obj.setAttribute("height","2");
+
     scene.append(this.obj);
 
   }
