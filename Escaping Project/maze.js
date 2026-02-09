@@ -1,5 +1,5 @@
 let maze = [
-  "ttttttttttttttttttttttttttttttttttttttt",
+  "tt-tttttttttttttttttttttttttttttttttttt",
   "tx-xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxt",
   "tx-p-----------x-xhx-------x---x-----xt",
   "tx-x-xxxxxxxxx-x-x-xpxxxxx-x-x-x-xpx-xt",

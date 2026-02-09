@@ -1,6 +1,20 @@
-function Golden(x, y, z) {
-  this.obj = document.createElement("a-box"); // 必须是 this.obj
-  this.obj.setAttribute("position", {x: x, y: y, z: z});
-  this.obj.setAttribute("color", "gold");
-  scene.appendChild(this.obj);
+class Golden {
+ constructor(x,y,z){
+   this.x = x;
+   this.y = y;
+   this.z = z;
+
+
+   this.obj = document.createElement("a-box");
+   this.obj.setAttribute("src","golden.webp");
+   this.obj.setAttribute("position",{x:x,y:0.1,z:z});
+   this.obj.setAttribute("height","0.05");
+
+
+
+
+   scene.append(this.obj);
+
+
+ }
 }
