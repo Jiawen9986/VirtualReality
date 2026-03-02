@@ -45,6 +45,8 @@ let lastShot = 0;
 const COOLDOWN = 250;
 const WORLD_LIMIT = 120;
 
+let lastSafePos = { x: 0, y: 1.6, z: 0 }; //新添加
+
 window.addEventListener("DOMContentLoaded",function() {
   scene = document.querySelector("a-scene");
   camera = document.querySelector("#player"); //
@@ -88,7 +90,7 @@ window.addEventListener("DOMContentLoaded",function() {
   const now = Date.now();
   if (now - lastShot < COOLDOWN) return; // 冷却时间未到
   if (ammo <= 0) return;                // 没子弹了
-
+  
   lastShot = now;
   ammo--; // 减少弹药
 
@@ -99,11 +101,28 @@ window.addEventListener("DOMContentLoaded",function() {
 }
 
   function loop() {
+
+  // --- A. 玩家身体碰撞检测 (防穿模) ---
+  const playerPos = camera.object3D.position;
+  let gridX = Math.round(playerPos.x);
+  let gridZ = Math.round(playerPos.z);
+
+  // 检查当前格子的字符是否为障碍物
+  if (maze[gridZ] && ["x", "t", "g", "p"].includes(maze[gridZ][gridX])) {
+    // 发生重叠，强制回退到上一个安全位置
+    playerPos.x = lastSafePos.x;
+    playerPos.z = lastSafePos.z;
+  } else {
+    // 位置安全，记录当前位置
+    lastSafePos.x = playerPos.x;
+    lastSafePos.z = playerPos.z;
+  } //此处全新添加
+
   for (let i = bullets.length - 1; i >= 0; i--) {
     const b = bullets[i];
     b.step(); // 调用 bullet.js 里的移动方法
 
-    const p = b.obj.object3D.position;
+    const p = b.obj.object3D.position; //？？？
 
 
 
@@ -118,9 +137,19 @@ window.addEventListener("DOMContentLoaded",function() {
     for (let j = targets.length - 1; j >= 0; j--) {
       if (getDistance(b.obj, targets[j]) < 1.5) {
         // 植物墙消失
+        let tx = Math.round(targets[j].object3D.position.x);
+        let tz = Math.round(targets[j].object3D.position.z);
+        if(maze[tz]) {
+          let rowArray = maze[tz].split("");
+          rowArray[tx] = "-"; // 逻辑上删除墙体
+          maze[tz] = rowArray.join("");
+        }
+
+        // 视觉上删除植物
         targets[j].remove();
         targets.splice(j, 1);
-        // 子弹消失
+        
+        // 删除子弹
         b.obj.remove();
         bullets.splice(i, 1);
         break; 
