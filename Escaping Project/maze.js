@@ -37,10 +37,17 @@ let maze = [
   "txxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxext",
   "ttttttttttttttttttttttttttttttttttttttt",
 ];
-let scene;
+let scene, camera;
+let bullets = [];
+let targets = []; // 专门存放可被击碎的 e 墙
+let ammo = 10;    // 初始10枚弹药
+let lastShot = 0;
+const COOLDOWN = 250;
+const WORLD_LIMIT = 120;
 
 window.addEventListener("DOMContentLoaded",function() {
   scene = document.querySelector("a-scene");
+  camera = document.querySelector("#player"); //
   for(let r = 0; r < maze.length; r++){
     let row = maze[r];
     let cols = row.split("");
@@ -49,7 +56,8 @@ window.addEventListener("DOMContentLoaded",function() {
         new Wall(c,1,r)
       }
       else if(cols[c] == "p"){
-        new Plant(c,1,r);
+        let p = new Plant(c, 1, r); // 只创建一次
+        if(p.obj) targets.push(p.obj); // 确保它被加入射击目标
       }
       else if(cols[c] == "h"){
         new Heart(c,1,r);
@@ -66,4 +74,66 @@ window.addEventListener("DOMContentLoaded",function() {
   }
 }
 
-})
+
+
+  window.addEventListener("keydown", shoot);
+
+    // 3. 启动游戏主循环
+    requestAnimationFrame(loop);
+  });
+
+  function shoot(e) {
+  if (e.key !== " ") return; // 检查是否为空格
+
+  const now = Date.now();
+  if (now - lastShot < COOLDOWN) return; // 冷却时间未到
+  if (ammo <= 0) return;                // 没子弹了
+
+  lastShot = now;
+  ammo--; // 减少弹药
+
+  // 这里的 Bullet 必须已经在 bullet.js 中定义好
+  if (typeof Bullet !== "undefined") {
+    bullets.push(new Bullet(scene, camera));
+  } 
+}
+
+  function loop() {
+  for (let i = bullets.length - 1; i >= 0; i--) {
+    const b = bullets[i];
+    b.step(); // 调用 bullet.js 里的移动方法
+
+    const p = b.obj.object3D.position;
+
+
+
+    // A. 范围检查：子弹飞太远则移除
+    if (Math.abs(p.x) > WORLD_LIMIT || Math.abs(p.z) > WORLD_LIMIT || b.life > 240) {
+      b.obj.remove();
+      bullets.splice(i, 1);
+      continue;
+    }
+
+
+    for (let j = targets.length - 1; j >= 0; j--) {
+      if (getDistance(b.obj, targets[j]) < 1.5) {
+        // 植物墙消失
+        targets[j].remove();
+        targets.splice(j, 1);
+        // 子弹消失
+        b.obj.remove();
+        bullets.splice(i, 1);
+        break; 
+      }
+    }
+  }
+  requestAnimationFrame(loop);
+}
+
+// --- 距离辅助函数 ---
+function getDistance(obj1, obj2) {
+  const p1 = obj1.object3D.position;
+  const p2 = obj2.object3D.position;
+  return Math.hypot(p1.x - p2.x, p1.y - p2.y, p1.z - p2.z);
+}
+
