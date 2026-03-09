@@ -2,57 +2,29 @@
  <head>
    <script src="https://aframe.io/releases/1.7.0/aframe.min.js"></script>
    <script src="maze.js"></script>
-   <script src="wall.js"></script>
-   <script src="plant.js"></script>
-   <script src="heart.js"></script>
-   <script src="tree.js"></script>
-   <script src="golden.js"></script>
-   <script src="script.js"></script>
-   <script src="bullet.js"></script>
-   <script src="glass.js"></script>
-
-
+    <script src="wall.js"></script>
+    <script src="plant.js"></script>
+    <script src="diamond.js"></script>
+    <script src="tree.js"></script>
+    <script src="golden.js"></script>
+    <script src="bullet.js"></script>
+    <script src="glass.js"></script>
 </head>
 <body>
-   <a-scene>
-     <a-entity light="type: ambient; intensity: 0.9"></a-entity>
-     <a-entity light="type: directional; intensity: 0.8" position="1 4 2"></a-entity>
-     <a-plane position="0 0 0" rotation="-90 0 0" width="80" height="80" color="#7BC8A4"></a-plane>
+    <a-scene>
+        <a-entity light="type: ambient; intensity: 0.9"></a-entity>
+        <a-entity light="type: directional; intensity: 0.8" position="1 4 2"></a-entity>
+        <a-plane position="0 0 0" rotation="-90 0 0" width="80" height="80" color="#7BC8A4"></a-plane>
+        <a-sky color="#ECECEC"></a-sky>
 
-     <a-sky color="#ECECEC"></a-sky>
+        <a-camera id="player" position="2 16 -2" wasd-controls="acceleration:20;" look-controls>
+            <a-image id="winScreen" src="win.png" position="0 0 -0.5" width="0.8" height="0.6" visible="false"></a-image>
 
-     <a-camera id="player" position="2 1.6 -2" rotation="0 0 0" wasd-controls="acceleration:20;" look-controls>
+            <a-entity id="hudAmmo" position="-1.45 0.52 -1.1" text="value: Ammo: 15; color: white; width: 2.5; font: mozillavr"></a-entity>
+            <a-entity id="hudDiamonds" position="-1.45 0.34 -1.1" text="value: Diamonds: 0; color: white; width: 2.5; font: mozillavr"></a-entity>
 
-
-       <a-entity id="hudScore"
-         position="-1.45 0.7 -1.1">
-       </a-entity>
-
-
-       <a-entity id="hudAmmo"
-         position="-1.45 0.52 -1.1"
-         text="value: Ammo: 3; color: white; width: 2.5; font: mozillavr">
-       </a-entity>
-
-
-       <a-entity id="hudTime"
-         position="-1.45 0.34 -1.1"
-         text="value: Time: 60; color: white; width: 2.5; font: mozillavr">
-       </a-entity>
-
-
-       <a-entity id="hudEnemies"
-         position="-1.45 0.16 -1.1"
-         text="value: Enemies left: 6; color: white; width: 2.5; font: mozillavr">
-       </a-entity>
-
-       <a-entity
-         position="0 0 -1"
-         geometry="primitive: ring; radiusInner: 0.01; radiusOuter: 0.015"
-         material="color: black">
-       </a-entity>
-     </a-camera>
-   </a-scene>
-
- </body>
+            <a-entity position="0 0 -1" geometry="primitive: ring; radiusInner: 0.01; radiusOuter: 0.015" material="color: black"></a-entity>
+        </a-camera>
+    </a-scene>
+</body>
 </html>

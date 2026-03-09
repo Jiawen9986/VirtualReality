@@ -1,4 +1,4 @@
-class Heart {
+class Diamond {
   constructor(x,y,z){
     this.x = x;
     this.y = y;
